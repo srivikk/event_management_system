@@ -17,7 +17,7 @@ con.connect(function (err) {
         console.log("Events Table created");
     });
 
-    var communications = "CREATE TABLE IF NOT EXISTS communications (event_id INT NOT NULL, FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE, id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email_template VARCHAR(20) , phone_template VARCHAR(20), schedular DATE )";
+    var communications = "CREATE TABLE IF NOT EXISTS communications (event_id INT NOT NULL, FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE, id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, from_body VARCHAR(20), to_body VARCHAR(20), subject VARCHAR(20), text VARCHAR(20), phone_template VARCHAR(20), schedular DATE )";
     con.query(communications, function (err, result) {
         if (err) throw err;
         console.log("Communications Table created");
